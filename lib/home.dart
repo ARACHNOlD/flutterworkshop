@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,58 +12,77 @@ class Home extends StatelessWidget {
         title: Text("Day 4"),
       ),
       body: Center(
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment(0.6, 0.5),
-              child: Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(width: 5),
-                  color: Colors.red,
+        child: Container(
+          height: 300,
+          width: 300,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black, width: 2),
+          ),
+          child: Stack(
+            children: [
+              Center(
+                child: Container(
+                  height: 150,
+                  width: 150,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 2),
+                      borderRadius: BorderRadius.circular(80)),
                 ),
               ),
-            ),
-            Row(
-              children: [
-                Container(
-                  height: 100,
+              Container(
+                height: 40,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: Colors.amberAccent,
+                  border: Border.all(width: 2),
+                ),
+                child: Text("ram"),
+              ),
+              Positioned(
+                left: 120,
+                top: 50,
+                child: Container(
+                  height: 40,
                   width: 50,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20)),
-                    border: Border.all(width: 5),
-                    color: Colors.red,
+                    color: Colors.amberAccent,
+                    border: Border.all(width: 2),
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  height: 150,
-                  width: 200,
+              ),
+              Positioned(
+                left: 200,
+                top: 130,
+                child: Container(
+                  height: 60,
+                  width: 50,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: 5),
-                      color: Colors.red,
-                      boxShadow: [
-                        BoxShadow(color: Colors.yellow),
-                      ]),
+                    color: Color.fromARGB(255, 24, 197, 24),
+                    border: Border.all(width: 2),
+                  ),
                 ),
-              ],
-            ),
-          ],
+              ),
+              Positioned(
+                top: 140,
+                left: 40,
+                child: Container(
+                  height: 120,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    border: Border.all(width: 2),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text("Home"),
-            Text("Contact"),
-            Icon(Icons.fingerprint_outlined)
+            Icon(Icons.person),
           ],
         ),
       ),
