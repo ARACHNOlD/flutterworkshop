@@ -130,7 +130,9 @@ class _StatefullCircleState extends State<StatefullCircle> {
                         bottomLeft: Radius.circular(5),
                       ),
                     ),
-                    child: Center(child: Text("-")),
+                    child: Center(
+                      child: Text("-"),
+                    ),
                   ),
                 ),
                 Container(
@@ -139,7 +141,11 @@ class _StatefullCircleState extends State<StatefullCircle> {
                   decoration: BoxDecoration(
                     border: Border.all(width: 1),
                   ),
-                  child: Center(child: Text(noOfBAlls.toString())),
+                  child: Center(
+                    child: Text(
+                      noOfBAlls.toString(),
+                    ),
+                  ),
                 ),
                 InkWell(
                   onTap: () {
@@ -153,12 +159,14 @@ class _StatefullCircleState extends State<StatefullCircle> {
                             SnackBar(
                               content: Text("Cannot increase more than 100"),
                             ),
-                          )
+                          ),
                         }
                       else
                         {
                           noOfBAlls = noOfBAlls + 1,
-                          setState(() {}),
+                          setState(
+                            () {},
+                          ),
                         }
                     },
                     child: Container(
@@ -186,11 +194,12 @@ class _StatefullCircleState extends State<StatefullCircle> {
                   width: 20,
                 ),
                 Switch(
-                    value: isGreen,
-                    onChanged: (f) {
-                      isGreen = f;
-                      setState(() {});
-                    })
+                  value: isGreen,
+                  onChanged: (f) {
+                    isGreen = f;
+                    setState(() {});
+                  },
+                )
               ],
             ),
           ],
