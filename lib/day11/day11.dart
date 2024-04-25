@@ -38,6 +38,10 @@ class _PeopleListState extends State<PeopleList> {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
                       return PeopleProfile(
+                        onAgeChange: (changeVakoAge) {
+                          people[index]['age'] = changeVakoAge;
+                          setState(() {});
+                        },
                         personIndex: index,
                         onGenderChange: (changeVakoGender) {
                           print(
