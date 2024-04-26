@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterworkshop/day13/PreviewSetting.dart';
 
 class PreviewPage extends StatelessWidget {
   const PreviewPage({super.key});
@@ -9,7 +10,16 @@ class PreviewPage extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return PreviewSetting();
+                  },
+                ),
+              );
+            },
             icon: Icon(Icons.edit),
           ),
         ],
