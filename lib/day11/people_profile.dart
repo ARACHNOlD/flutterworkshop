@@ -4,11 +4,14 @@ import 'package:flutterworkshop/day11/list.dart';
 class PeopleProfile extends StatefulWidget {
   Function(String) onGenderChange;
   Function(int) onAgeChange;
-  PeopleProfile(
-      {super.key,
-      required this.personIndex,
-      required this.onGenderChange,
-      required this.onAgeChange});
+  Function(String) onNameChange;
+  PeopleProfile({
+    super.key,
+    required this.personIndex,
+    required this.onGenderChange,
+    required this.onAgeChange,
+    required this.onNameChange,
+  });
   int personIndex;
 
   @override
@@ -18,6 +21,16 @@ class PeopleProfile extends StatefulWidget {
 class _PeopleProfileState extends State<PeopleProfile> {
   late String gender = people[widget.personIndex]['gender'];
   late int age = people[widget.personIndex]['age'];
+  late String name = people[widget.personIndex]['name'];
+
+  TextEditingController hamroController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    hamroController.text = people[widget.personIndex]['name'];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,10 +100,36 @@ class _PeopleProfileState extends State<PeopleProfile> {
                 color: Colors.black,
               ),
               TextField(
+                controller: hamroController,
                 decoration: InputDecoration(
-                  
+                  labelText: "Enter Name",
+                  hintText: "Your name here",
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green),
+                      borderRadius: BorderRadius.circular(10)),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.yellow),
+                ),
+                onPressed: () {
+                  setState(() {
+                    name = hamroController.text;
+                  });
+                  widget.onNameChange(name);
+                },
+                child: Text('update'),
+              ),
             ],
           ),
         ),
